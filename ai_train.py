@@ -4,7 +4,7 @@ model=None
 def ai_md():
     global model
     dir=os.path.dirname(os.path.abspath(__file__))
-    md_path=os.path.join(dir,'elimubase_model.pkl')
+    md_path=os.path.join(dir,'elimubase_model1.pkl')
 
     try:
             model=joblib.load(md_path)

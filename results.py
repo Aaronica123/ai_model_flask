@@ -13,6 +13,7 @@ def filter1(reg):
                 state.exam_2
             ]
             if(ai_md):
+                print(hold)
                 return risk(hold)
             else:
                 return f"the ai couldnt initialize"
