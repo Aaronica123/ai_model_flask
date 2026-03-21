@@ -1,7 +1,14 @@
 from ai_model import AI_DATA
 from ai_train import ai_md,risk
+from flask import request
 import numpy as np
+import json
 def filter1(reg,subj):
+    data=json.loads(request.data)
+    
+    data=request.get_json()    
+    register=data.get('register')
+    subject=data.get('subject')
     reg_=reg
     subj_id=subj
     state=AI_DATA.query.filter_by(admission_number=reg_ ,subject_id=subj_id).all()
