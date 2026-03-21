@@ -25,9 +25,9 @@ def risk(marks):
     prd=model.predict(input_1)
     x1=int(input_1['trend'].values[0])
     if(x1>0):
-        return f"risk is at {prd[0]} but student is in an uptrend of {x1}"
+        return f"risk is at {prd[0]} and student is in a trend of {x1}"
     elif(x1<0):
-        return f"risk is at {prd[0]} but student is in a downtrend of {x1}"
+        return f"risk is at {prd[0]} but student is in a trend of {x1}"
     else:
         return f"risk is at {prd[0]} but student is in a stable trend of {x1}"
         
