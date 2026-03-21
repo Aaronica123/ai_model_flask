@@ -31,7 +31,6 @@ def risk(marks):
     else:
         return f"risk is at {prd[0]} but student is in a stable trend of {x1}"
         
-    print (f"{x1}")
     
 from sklearn.linear_model import LinearRegression
 import numpy as np

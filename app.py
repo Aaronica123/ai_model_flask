@@ -1,10 +1,12 @@
 from flask import Flask
 from extensions import db, migrate
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
 app=Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:Aaronica@localhost:5432/ai'
+app.config['SQLALCHEMY_DATABASE_URI']=os.getenv('supabase')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db.init_app(app)
