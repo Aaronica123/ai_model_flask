@@ -1,14 +1,10 @@
 from ai_model import AI_DATA
 from ai_train import ai_md,risk
-from flask import request
+
 import numpy as np
-import json
+
 def filter1(reg,subj):
-    data=json.loads(request.data)
     
-    data=request.get_json()    
-    register=data.get('register')
-    subject=data.get('subject')
     reg_=reg
     subj_id=subj
     state=AI_DATA.query.filter_by(admission_number=reg_ ,subject_id=subj_id).all()
@@ -45,9 +41,29 @@ def general(cont,subj):
     h=[]
     h=cont
     s=0
-    while(s<len(h)):
-        print(h[s])
-        s+=1;   
+    try:
+        while(s<len(h)):
+            temp=str(cont[s])
+            temp=str(temp)
+            print(temp)
+            st=[]
+            hd=AI_DATA.query.filter_by(admission_number=temp,subject_id=subj).all()
+            s+=1
+            if(ai_md):
+                for k in hd:
+                    
+                    st.append(k.marks_obtained)
+                print(risk(st))
+                
+            else:
+                return f"couldnt load"
+            
+    except Exception as e:
+        return f"the error is {str(e)}"
+    
+     
+        
+
     
         
     
