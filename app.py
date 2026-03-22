@@ -45,6 +45,8 @@ def predict():
     else:
         value,x=result
         return jsonify({
+            "registration_number":str(reg),
+            "subject_id":subj,
             "risk": value,
             "trend": x
         })
