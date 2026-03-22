@@ -36,9 +36,12 @@ def jsn():
     subj = data.get('subject')
     
     result = filter1(reg, subj)
-    return jsonify({"risk": result.value,
-                    "trend":result.x1
-                    })
+    if isinstance(result, str):
+        return jsonify({"error": result}), 400
+    return jsonify({
+        "risk": getattr(result, 'value', "N/A"),
+        "trend": getattr(result, 'x1', "N/A")
+    })
 
 from ai_model import AI,AI_DATA
 from ai_train import ai_md
