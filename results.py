@@ -39,10 +39,10 @@ def filter1(reg,subj):
                 
 def general(cont,subj):
     h=[]
-    h=cont
+    
     s=0
     try:
-        while(s<len(h)):
+        while(s<len(cont)):
             temp=str(cont[s])
             temp=str(temp)
             print(temp)
@@ -53,10 +53,12 @@ def general(cont,subj):
                 for k in hd:
                     
                     st.append(k.marks_obtained)
-                print(risk(st))
+                print (f"{risk(st)}")
                 
             else:
                 return f"couldnt load"
+            
+        
             
     except Exception as e:
         return f"the error is {str(e)}"
