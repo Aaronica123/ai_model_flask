@@ -28,15 +28,17 @@ migrate.init_app(app,db)
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
+    
     if not data:
         
         return jsonify({"error": "No JSON data provided"}), 400
+    reg = data.get('admissionNumber') or data.get('register')
+    subj = data.get('subjectId') or data.get('subject')
     
     if not reg or subj is None:
         return jsonify({"error": "admissionNumber and subjectId are required"}), 400
 
-    reg = data.get('admissionNumber') or data.get('register')
-    subj = data.get('subjectId') or data.get('subject')
+    
     
     result = filter1(reg, subj)
     
